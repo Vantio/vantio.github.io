@@ -1,1022 +1,315 @@
 <head>
-    <title>Empty Road... | Vantio</title>
+    <title>Empty Room... | Vantio</title>
     <link rel="icon" type="image/x-icon" href="/logo.png">
 </head>
 <body>
-<style>
-html{
-    box-sizing: border-box;
-
-    --black :#1a1c20 ;
-    --white : #fff ;
-    --green : #00c380 ;
-    --d-green : #019b66 ;
-    --gray : #c1c1c1 ;
-    --l-gray: #c4c4c4 ;
-    --m-gray : #373838 ;
-    --d-gray : #282724 ;
-    --d-blue: #202428 ;
-    --orange : #ef6206 ; 
-    --yellow : #dfa500 ;
-    --l-yellow: #deb953;
-    --light: #fbfbfb ;
-    --n-road : -4em;
-    --p-road : 7em;
-
-    background-color: var(--green) ;
-
-
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+	
+:root {
+    --c0: #71a1ff;
+    --c1: #4d85f6;
+    --c2: #3b72e2;
+    --c3: #336de2;
+    --c4: #2151af;
+    --c5: #244483;
+    --c6: #103071;
+    --clr: 1; /* change color from 1 to 12 */
+	--hue: calc(30deg - (30deg * var(--clr))); 
 }
 
-html *,
-html *::before,
-html *::after{
-
-    box-sizing: inherit ;
-
+body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    perspective: 1000vmin;
+    font-family: 'Varela Round', Arial, Helvetica, serif;
+	background: var(--c0);
 }
 
-body::before,
-body::after {
-
-    content: " " ;
-    position: absolute ;
-
-}
-
-body{
-
-    margin: 0 ;
-    height: 100vh ;
-    display: flex ;
-    overflow: hidden ;
-    position: relative ;
-    align-items: center ;
-    justify-content: center ;
-    background-repeat: no-repeat ;
-    animation: car 3.5s cubic-bezier(0.57, 0.63, 0.49, 0.65) infinite ;
-
-
-    background-image : 
-
-
-    /* ===rubber-l */ 
-
-        radial-gradient(circle at 49% 117%, var(--black) 37%, transparent 38%) ,
-        radial-gradient(circle at -24% 50%, var(--white) 31%, transparent 49%) ,
-        radial-gradient(2.95em 2.5em at 52% 1.2%, var(--black) 37%, transparent 38%) ,
-        radial-gradient(2.95em 2.5em at 52% 1.2%, var(--black) 37%, transparent 38%) ,
-        linear-gradient(var(--black) 100%, transparent 0) ,
-
-    /* rubber-l=== */ 
-
-    
-    /* ===rubber-r */ 
-
-        radial-gradient(circle at 49% 117%, var(--black) 37%, transparent 38%) ,
-        radial-gradient(circle at 124% 50%, var(--white) 31%, transparent 49%) ,
-        radial-gradient(2.95em 2.5em at 48% 1.2%, var(--black) 37%, transparent 38%) ,
-        radial-gradient(2.95em 2.5em at 48% 1.2%, var(--black) 37%, transparent 38%) ,
-        linear-gradient(var(--black) 100%, transparent 0) ,
-
-    /* rubber-r=== */ 
-
-
-    /* ===shadow */ 
-
-        linear-gradient( var(--d-green) 100% , transparent 0) ;
-
-    /* shadow=== */
-
-
-    background-size : 
-
-
-    /* ===rubber-l */ 
-
-        2.5em 2.5em ,
-        0.7em 0.6em ,
-        2.5em .9em ,
-        2.5em .9em ,
-        1.95em 3.9em ,
-
-    /* rubber-l=== */
-
-
-    /* ===rubber-r */ 
-
-        2.5em 2.5em ,
-        0.7em 0.6em ,
-        2.5em .9em ,
-        2.5em .9em ,
-        1.95em 3.9em ,
-
-    /* rubber-r=== */ 
-
-
-    /* ===shadow */ 
-
-        13em .9em ;
-
-    /* shadow=== */
-
-   
-    background-position : 
-
-
-    /* ===rubber-l */ 
-
-        calc(50% - 6.4em) calc(50% - 1.7em) ,
-        calc(50% - 5.26em) calc(50% - -3.4em) ,
-        calc(50% - 6.5em) calc(50% - -3.8em) ,
-        calc(50% - 4.3em) calc(50% - -3.2em) ,
-        calc(50% - 6.58em) calc(50% - -1.5em) ,
-
-    /* rubber-l=== */ 
-
-    
-    /* ===rubber-r */ 
-
-        calc(50% - -6.45em) calc(50% - 1.7em) ,
-        calc(50% - -5.26em) calc(50% - -3.4em) ,
-        calc(50% - -6.5em) calc(50% - -3.8em) ,
-        calc(50% - -4.3em) calc(50% - -3.2em) ,
-        calc(50% - -6.58em) calc(50% - -1.5em) ,
-
-    /* rubber-r=== */ 
-
-
-    /* ===shadow */ 
-
-        center calc(50% - -3.8em) ;
-
-    /* shadow=== */
-
-
+body * {
+    transform-style: preserve-3d;
 }
 
 
-
-body::before{
-    
-    width: 15.5em ;
-    height: 62.9em ;
-    top: calc(50% - 26.2em) ;
-    background-size: 24.6% 491% ;
-    background-repeat: no-repeat ;
-    background-position: center 0 ;
-    animation: line 1.5s infinite linear, move-road 3.5s infinite linear ;
-    transform: perspective(311px) rotateX(83deg) translate3d(var(--n-road) ,-11.975em, 0) ;
-    background-image: repeating-linear-gradient(to top, var(--white) , var(--white) 4.6%, transparent 0 , transparent 13.01%) ;
-
+.cuboid {
+    --size: 250;
+    --height: var(--size);
+    --width: var(--size);
+    --depth: var(--size);
+    height: calc(var(--size) * 1vmin);
+    width: calc(var(--size) * 1vmin);
+    position: absolute;
+    transform: rotateX(50deg) rotate(45deg);
+    pointer-events: none;
 }
 
-
-
-
-
-body::after{
-
-    width: 15.2em ;
-    height: 13.2em ;
-    top: calc(50% - 8.8em) ;
-    left: calc(50% - 7.55em) ;
-    background-repeat: no-repeat ;
-    animation: light 1s linear infinite,  shake 3.5s linear infinite ;  
-    
-
-
-    background-image : 
-
-    /* ===ceiling */ 
-
-        radial-gradient(58em 20em at 50% 215% , transparent 20% , var(--white) 20.5% , var(--white) 20.8% , var(--green) 21.5%) ,
-
-    /* ceiling=== */
-
-
-    /* ===antenna */ 
-
-        radial-gradient( circle at center 100% , var(--black)  30% , transparent 0) ,
-
-    /* antenna=== */
-    
-    
-    /* ===antenna */ 
-
-        linear-gradient(var(--white) 100% , transparent 0) ,
-
-    /* antenna=== */
-
-
-    /* ===glass-l */ 
-
-        radial-gradient( 17.8em 37em at 70% 240% , var(--black) 30% , transparent 30.5%) ,
-
-    /* glass-l=== */
-
-
-    /* ===glass-r */ 
-
-        radial-gradient( 17.8em 37em at 31% 240% , var(--black) 30% , transparent 30.5%) ,
-
-    /* glass-r=== */
-
-
-    /* ===light */ 
-
-        radial-gradient( circle , var(--light) 48% ,  var(--black) 52%, var(--black) 59% , transparent 62%) ,
-
-    /* light=== */
-
-
-    /* ===light */ 
-
-        radial-gradient( circle , var(--light) 48% ,  var(--black) 52%, var(--black) 59% , transparent 62%) ,
-
-    /* light=== */
-
-
-    /* ===hood-ro */ 
-
-        radial-gradient( 1em 1em at 102% 100% ,   var(--m-gray)  28%, #f3f3f3 30% ) ,
-
-    /* hood-ro=== */
-
-
-    /* ===hood-ro */ 
-
-        radial-gradient( 1em 1em at 97% -7% ,  var(--m-gray)  28%, var(--l-gray)  30% ) ,
-
-    /* hood-ro=== */
-
-
-    /* ===hood-ro */ 
-
-        radial-gradient( 1em 1em at -6% 102% ,  var(--m-gray)  28%, #efefef 30% ) ,
-
-    /* hood-ro=== */
-
-
-    /* ===hood-ro */ 
-
-        radial-gradient( 1em 1em at -6% -1% ,  var(--m-gray)  28%, var(--l-gray)  30% ) ,
-
-    /* hood-ro=== */
-
-
-    /* ===hood-f */ 
-
-        linear-gradient( to top , var(--m-gray) 50% ,  var(--d-gray) 0, var(--d-gray) 58% , var(--m-gray) 0) ,
-
-    /* hood-f=== */
-
-
-    /* ===hood-e */ 
-
-        linear-gradient( to top , var(--l-gray) 30% , var(--white) 100% , transparent 0) ,
-
-    /* hood-e=== */
-
-
-    /* ===hood-l */ 
-
-        radial-gradient( 16.4em 30.1em at 209% 333% , var(--white)  30% , transparent 30.2%) ,
-
-    /* hood-l=== */
-
-
-    /* ===hood-r */ 
-
-        radial-gradient( 16.4em 30.1em at -109% 333% , var(--white) 30% , transparent 30.2%) ,
-
-    /* hood-r=== */
-
-
-    /* ===hood-o */ 
-
-        linear-gradient(  var(--gray) 100% , transparent 0) ,
-
-    /* hood-o=== */
-
-
-    /* ===hood */ 
-
-        linear-gradient( var(--white) 100% , transparent 0) ,
-
-    /* hood=== */
-
-
-    /* ===mirror */ 
-
-        radial-gradient( 6.7em 2.5em at 154% 8% , var(--black) 30% , transparent 33%) ,
-
-    /* mirror=== */
-
-
-    /* ===mirror */ 
-
-        radial-gradient( 6.7em 2.5em at -53% 8% , var(--black) 30% , transparent 33%) ,
-
-    /* mirror=== */
-
-
-    /* ===guide-l */ 
-
-        linear-gradient( var(--orange) 100% , transparent 0) ,
-
-    /* guide-l=== */
-
-
-    /* ===guide-r */ 
-
-        linear-gradient( var(--orange) 100% , transparent 0) ,
-
-    /* guide-r=== */
-
-
-    /* ===plaque */ 
-
-        linear-gradient( var(--yellow) 100% , transparent 0) ,
-
-    /* plaque=== */
-
-    
-    /* ===plaque */ 
-
-        linear-gradient( var(--l-yellow) 100% , transparent 0) ,
-
-    /* plaque=== */
-
-
-    /* ===bumper */ 
-
-        linear-gradient( var(--d-blue) 100% , transparent 0) ,
-
-    /* bumper=== */
-
-
-    /* ===bumper-l */ 
-
-        radial-gradient( circle at 124% 39% , var(--d-blue) 60% , transparent 64%) ,
-
-    /* bumper-l=== */
-
-
-    /* ===bumper-r */ 
-
-        radial-gradient( circle at -44% 39% , var(--d-blue) 60% , transparent 64%) ,
-
-    /* bumper-r=== */
-
-
-    /* ===bumper-d */ 
-
-        radial-gradient(13.2em 2em at 50% 59% , var(--l-gray) 96% , transparent 100% ) ,
-
-    /* bumper-d=== */
+.cuboid .side {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 100%;
+	width: 100%;
+	border-radius: 2px;
+    box-shadow: 0vmin 0vmin 0.5vmin 0 var(--c0) inset, 0 0 5vmin 0 var(--c0);
+}
+
+.cuboid .side:nth-of-type(1) {
+	transform: translate3d(-50%, -50%, calc(var(--size) * -0.5vmin)) rotateY(180deg);
+	background: radial-gradient(circle at 100% 0%, var(--c4), #fff0 45vmin),radial-gradient(circle at 100% 0%, var(--c1), var(--c4));
+}
  
- 
-    /* ===bumper-l */ 
- 
-        radial-gradient( 1.6em 1.6em at 75% -9% , var(--l-gray) 60% , transparent 64%) ,
-
-    /* bumper-l=== */
-
-
-    /* ===bumper-r */ 
- 
-        radial-gradient( 1.6em 1.6em at 15% -9% , var(--l-gray) 60% , transparent 64%) ,
-
-    /* bumper-r=== */
-
-
-    /* ===floor */ 
- 
-        linear-gradient( var(--d-blue) 100% , transparent 0) ,
-
-    /* floor=== */
-
-
-    /* ===floor-l */ 
-
-        radial-gradient( 6.9em 4.6em at 295% 3% , var(--d-blue) 30% , transparent 31%) ,
-
-    /* floor-l=== */
-
-
-    /* ===floor-r */ 
-
-        radial-gradient( 6.9em 4.6em at -189% 3% , var(--d-blue) 30% , transparent 31%) ;
-
-    /* floor-r=== */
-
-
-
-    background-size : 
-
-    /*=== ceiling */ 
-
-        61.5% 20% ,
-
-    /* ceiling=== */  
-
-
-    /* ===antenna */ 
-
-        5% 6% ,
-
-    /* antenna=== */
-
-
-    /*=== antenna */ 
-
-        .4% 39% ,
-
-    /* antenna=== */
-
-
-    /* ===glass-l */ 
-
-        60% 30% ,
-
-    /* glass-l=== */
-
-
-    /* ===glass-r */ 
-
-        60% 30% ,
-
-    /* glass-r=== */
-
-
-    /* ===light */ 
-
-        16% 16% ,
-
-    /* light=== */
-
-
-    /* ===light */ 
-
-        16% 16% ,
-
-    /* light=== */
-
-
-    /* ===hood-ro */ 
-
-        2.4% 2%  ,
-
-    /* hood-ro=== */
-
-
-    /* ===hood-ro */ 
-
-        2.4% 2.3% ,
-
-    /* hood-ro=== */
-
-
-    /* ===hood-ro */ 
-
-        2.4% 2.3% ,
-
-    /* hood-ro=== */
-
-
-    /* ===hood-ro */ 
-
-        2.4% 2.3% ,
-
-    /* hood-ro=== */
-
-
-    /* ===hood-f */ 
-
-        91% 12%  ,
-
-    /* hood-f=== */
-
-
-    /* ===hood-e */ 
-
-        93.9% 17% ,
-
-    /* hood-e=== */
-
-
-    /* ===hood-l */ 
-
-        12% 17.5% ,
-
-    /* hood-l=== */
-
-
-    /* ===hood-r */ 
-
-        12% 17.5% ,
-
-    /* hood-r=== */
-
-
-    /* ===hood-o */ 
-
-        38% 1.1% ,
-
-    /* hood-o=== */
-
-
-    /* ===hood */ 
-
-        77% 25% ,
-
-    /* hood=== */
-
-
-    /* ===mirror */ 
-
-        9% 30% ,
-
-    /* mirror=== */
-
-
-    /* ===mirror */ 
-
-        9% 30% ,
-
-    /* mirror=== */
-
-
-    /* ===guide-l */ 
-
-        8.4% 3% ,
-
-    /* guide-l=== */
-
-
-    /* ===guide-r */ 
-
-        8.4% 3% ,
-
-    /* guide-r=== */
-
-
-    /* ===plaque */ 
-
-        33% 6.5% ,
-
-    /* plaque=== */
-
-
-    /* ===plaque */ 
-
-        36% 9% ,
-
-    /* plaque=== */
-
-
-    /* ===bumper */ 
-
-        87% 30% ,
-
-    /* bumper=== */
-
-
-    /* ===bumper-l */ 
-
-        10% 12% ,
-
-    /* bumper-l=== */
-
-
-    /* ===bumper-r */ 
-
-        10% 12% ,
-
-    /* bumper-r=== */
-
-
-    /* ===bumper-d */ 
-
-        78% 35% ,
-
-    /* bumper-d=== */
-
-
-    /* ===bumper-l */ 
-
-        11% 8% ,
-
-    /* bumper-l=== */
-
-
-    /* ===bumper-r */ 
-
-        11% 8% ,
-
-    /* bumper-r=== */
-
-
-    /* ===floor */ 
-
-        68%  8% ,
-
-    /* floor=== */
-
-
-    /* ===floor-l */ 
-
-        5% 7% ,
-
-    /* floor-l=== */
-
-
-    /* ===floor-r */ 
-
-        5% 7% ;
-
-    /* floor-r=== */
-
-
-    background-position : 
-
-
-    /*=== ceiling */ 
-
-        50.5% 0 ,
-        
-    /* ceiling=== */ 
-
-
-    /* ===antenna */ 
-
-        90% 37% ,
-
-    /* antenna=== */
-
-
-    /*=== antenna */ 
-
-        88% 1.2% ,
-        
-    /* antenna=== */ 
-
-
-    /* ===glass-l */ 
-
-        0 11.7% ,
-
-    /* glass-l=== */
-
-
-    /* ===glass-r */ 
-
-        100% 11.7% ,
-
-    /* glass-r=== */   
-
-
-    /* ===light */ 
-
-        5% 63% ,
-
-    /* light=== */ 
-
-
-    /* ===light */ 
-
-        95% 63% ,
-
-    /* light=== */ 
-
-
-    /* ===hood-ro */ 
-
-        4.1% 55.7% ,
-
-    /* hood-ro=== */ 
-
-
-    /* ===hood-ro */ 
-
-        4.1% 65.9% ,
-
-    /* hood-ro=== */ 
-
-
-    /* ===hood-ro */ 
-
-        95.8% 55.7% ,
-
-    /* hood-ro=== */ 
-
-
-    /* ===hood-ro */ 
-
-        95.8% 65.8% ,
-
-    /* hood-ro=== */ 
-
-
-    /* ===hood-f */ 
-
-        center 62% ,
-
-    /* hood-f=== */ 
-
-
-    /* ===hood-e */ 
-
-        49% 63.6% ,
-
-    /* hood-e=== */
-
- 
-
-    /* ===hood-l */ 
-
-        3.4% 46.2% ,
-
-    /* hood-l=== */ 
-
-
-    /* ===hood-r */ 
-
-        96.5% 46.2% ,
-
-    /* hood-r=== */
-
-
-    /* ===hood-o */ 
-
-        center 40.9% ,
-
-    /* hood-o=== */
-
-
-    /* ===hood */ 
-
-        center 50.3% ,
-
-    /* hood=== */
-
-
-    /* ===mirror */ 
-
-        5.7% 48.6% ,
-
-    /* mirror=== */ 
-
-
-    /* ===mirror */ 
-
-        95% 48.6% ,
-
-    /* mirror=== */
-
-
-    /* ===guide-l */ 
-
-        5% 75.2% ,
-
-    /* guide-l=== */
-
-
-    /* ===guide-r */ 
-
-        95% 75.2% ,
-
-    /* guide-r=== */
-
-
-    /* ===plaque */ 
-
-        51% 86%  ,
-
-    /* plaque=== */
-
-
-    /* ===plaque */ 
-
-        51.5% 87.3%  ,
-
-    /* plaque=== */
-
-
-    /* ===bumper */ 
-
-        center 71.9% ,
-
-    /* bumper=== */
-
-
-    /* ===bumper-l */ 
-
-        -0.8% 77.8% ,
-
-    /* bumper-l=== */
-
-
-    /* ===bumper-r */ 
-
-        101.7% 77.8% ,
-
-    /* bumper-r=== */
-
-
-    /* ===bumper-d */ 
-
-        center 80.2% ,
-
-    /* bumper-d=== */
-
-
-    /* ===bumper-l */ 
-
-        4% 85.9% ,
-
-    /* bumper-l=== */
-
-
-    /* ===bumper-r */ 
-
-        97% 85.9% ,
-
-    /* bumper-r=== */
-
-
-    /* ===floor */ 
-
-        center 92.5% ,
-
-    /* floor=== */
-
-
-    /* ===floor-l */ 
-
-        11.7% 92.6% ,
-
-    /* floor-l=== */
-
-
-    /* ===floor-r */ 
-
-        88.3% 92.6% ;
-
-    /* floor-r=== */
-
-    
+.cuboid .side:nth-of-type(2) {
+	width: calc(var(--size) * 1vmin);
+	transform: translate(-50%, -50%) rotateY(-90deg) translate3d(0, 0, calc(var(--size) * 0.5vmin));
+	background: radial-gradient(circle at 0% 0%, var(--c4), #fff0 45vmin),radial-gradient(circle at 0% 0%, var(--c2), var(--c5));
+}
+
+.cuboid .side:nth-of-type(3) {
+	height: calc(var(--size) * 1vmin);
+	transform: translate(-50%, -50%) rotateX(90deg) translate3d(0, 0, calc(var(--size) * 0.5vmin));
+	background: radial-gradient(circle at 0% 0%, var(--c4), #fff0 45vmin), radial-gradient(circle at 0% 0%, var(--c1), var(--c6));
 }
 
 
-@keyframes line{
-
-    100%{
-
-        background-position: center 100% ;
-
-    }
-
-} 
-
-
-@keyframes car{
-
-    15%, 23%{
-
-        transform: translate3d(-2.3em, 0, 0) ;
-
-    }
-
-    36% , 42%{
-
-        transform: translate3d(-.8em, 0, 0) ;
-
-    }
-
-    61%, 71.5%{
-
-        transform: translate3d(2.8em, 0, 0) ;
-
-    }
-
-    81%, 88%{
-
-        transform: translate3d(1.5em, 0, 0) ;
-    }
-
-}
-
-@keyframes move-road {
-
-    5.5%{
-
-        transform: perspective(311px) rotateX(83deg) translate3d(var(--n-road) ,-11.975em, 0) ;
-
-    }
-
-    27%, 51%{
-
-        transform: perspective(311px) rotateX(83deg) translate3d(var(--p-road) ,-11.975em, 0) ;
-
-    }
-
-    73%, 100% {
-
-        transform: perspective(311px) rotateX(83deg) translate3d(var(--n-road) ,-11.975em, 0) ;
-
-
-    }
-
-}
-
-@keyframes light{
-
-    0% , 37%{
-
-        --light: #fbfbfb ;
-    }
-
-    50%{
-
-        --light : #f1f1f1 ;
-    }
-    
-    62%{
-
-        --light : #fbfbfb ;
-    }
-
-    65%{
-
-        --light: #f1f1f1 ;
-
-    }
-
-    95%{
-
-        --light: #fbfbfb ;
-
-    }
-
-    100%{
-
-         --light: #f1f1f1 ;
-
-    }
-
-}
-
-@keyframes shake {
-
-    5%, 26%{
-
-        transform:  rotate(-1.5deg) ;
-
-    }
-
-    33%, 41%{
-
-        transform:  rotate(-.5deg) ;
-
-    }
-
-    48%, 69%{
-
-        transform: rotate(1.5deg) ;
-
-    }
-
-    80%, 95%{
-
-        transform:  rotate(.5deg) ;
-        
-    }
-
+.room {
+	width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    filter: hue-rotate(var(--hue));
 }
 
 
-@media screen and (max-width: 36em) {
-    
-    html{
-
-        transform: scale(.5) ;
-
-    }
-
-
-    body::before{
-      
-        width: 11em ;
-        --n-road: -4em ;
-        --p-road: 4em ;
-      
-    }
-    
-
+.oops {
+    width: 100%;
+    text-align: center;
+    font-size: 2.25vmin;
+    transform: rotateX(21deg);
+    transform-origin: 100% 50%;
+    top: 10%;
+    position: absolute;
+    left: 0;
 }
-</style>
+
+.oops h2 {
+    color: #fff2;
+    float: left;
+    transform-origin: 100% 50%;
+    transform: rotateY(-60deg) scaleX(1.5);
+    margin: -5vmin 0 0 -5vmin;
+    font-size: 14vmin;
+    width: 50%;
+    text-shadow: 0px 2px 1px #94B5FF, -1px 1px 2px #94b5ff80, -1px -1px 2px var(--c4), -2px -2px 2px var(--c4), -3px -3px 2px var(--c4), -4px -4px 2px var(--c4), -5px -5px 2px var(--c4), -6px -6px 2px var(--c4), -7px -7px 2px var(--c4), -8px -8px 2px var(--c4), -9px -9px 2px var(--c4), -10px -10px 2px var(--c4), -11px -11px 2px var(--c4), -12px -12px 2px var(--c4), -13px -13px 2px var(--c4), -14px -14px 2px var(--c4), -15px -15px 2px var(--c4), -16px -16px 2px var(--c4), -16px -16px 2px var(--c6), -10px -10px 8px var(--c6), -6px -15px 13px var(--c6);
+}
+
+.oops p {
+    float: right;
+    color: #fff4;
+    transform-origin: 0% 50%;
+    transform: rotateY(60deg) scaleX(1.5);
+    margin-top: -4vmin;
+    margin-right: -2vmin;
+    font-size: 5vmin;
+    max-width: 50vmin;
+    width: 50%;
+    text-shadow: 0px 2px 1px #94B5FF, -1px 1px 2px #94b5ff80, 1px -1px 2px var(--c4), 2px -2px 2px var(--c4), 3px -3px 2px var(--c4), 4px -4px 2px var(--c4), 5px -5px 2px var(--c4), 6px -6px 2px var(--c4), 7px -7px 2px var(--c4), 8px -8px 2px var(--c4), 6px -6px 7px var(--c6), 6px -6px 7px var(--c6);
+}
+
+
+.center-line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.hole {
+    width: 28vmin;
+    height: 20vmin;
+    background: 
+        radial-gradient(circle at 50% 0%, var(--c2), #fff0 45%), 
+        radial-gradient(circle at 30% 100%, #061b43, #fff0 77%), 
+        radial-gradient(circle at 20% 100%, var(--c3), var(--c2), var(--c2));
+    border-radius: 100%;
+    box-shadow: 0 -2px 4px -2px #fffc, 0 2px 3px -3px #fffc inset, 0 2px 6px -4px #000;
+    overflow: hidden;
+    position: relative;
+    margin-top: 30vmin;
+}
+
+
+.ladder,
+.ladder-shadow {
+    --shadow: #0008;
+    background: 
+        linear-gradient(180deg, #fff0 33%, var(--shadow), #000), 
+        linear-gradient(90deg, #cec3b9 0 1.2vmin, #b3aba2 0 1.5vmin, #fff0 0 100%), 
+        linear-gradient(90deg, #cec3b9 0 1.2vmin, #b3aba2 0 1.75vmin, #fff0 0 calc(100% - 1.75vmin)), 
+        repeating-linear-gradient(0deg, #cec3b9 0 1.2vmin, #e7dbcf 0 1.75vmin, #fff0 0 6.75vmin), 
+        linear-gradient(90deg, #cec3b9 0 1.2vmin, #b3aba2 0 1.75vmin, #fff0 0 calc(100% - 1.75vmin));
+    width: 10vmin;
+    height: 30vmin;
+    margin-left: 14vmin;
+    position: absolute;
+    top: 0vmin;
+    transform: rotate3d(4, 1, 1, 45deg) skew(0deg, 20deg);
+    background-position: 0 0, 0 0, 8.25vmin 0, 0 -3.25vmin, 0 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+.ladder-shadow {
+    filter: invert(1) blur(1px) opacity(0.4) contrast(5);
+    transform: rotate3d(2, 1, 1, 45deg) rotate(-10deg) translate(1.15vmin, 1.9vmin) skew(0deg, 20deg);
+    --shadow: #0000;
+}
+
+.ladder:before, 
+.ladder:after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(210deg, #fff0 0.4vmin, #e7dbcf calc(0.35vmin + 1px) 1.45vmin, #b3aba2 calc(1.4vmin + 1px) 100%);
+    width: 0.85vmin;
+    height: 1.75vmin;
+    transform-origin: 0 1%;
+    transform: rotate(-90deg);
+    top: 1px;
+}
+
+.ladder:after {
+    left: 8.25vmin;
+}
+
+
+.four {
+    font-size: 45vmin;
+    font-weight: bold;
+    font-family: Arial, Helvetica, serif;
+    position: absolute;
+    margin-left: -58vmin;
+    margin-top: 27vmin;
+    transform: rotate(22deg) scale(0.8, 0.85) rotateX(40deg) rotateY(-10deg) rotateZ(-5deg);
+    text-shadow: 0px 2px 1px #94b5ff, -1px 1px 2px #94b5ff80, 1px 2px 2px var(--c3), 2px 4px 2px var(--c3), 4px 6px 2px var(--c3), 5px 8px 2px var(--c3), 6px 10px 2px var(--c3), 7px 12px 2px var(--c3), 8px 14px 2px var(--c3), 9px 16px 2px var(--c3), 10px 18px 2px var(--c3), 11px 20px 3px var(--c3), 12px 22px 3px var(--c3), 13px 22px 10px var(--c6), 18px 14px 15px var(--c6);
+    color: var(--c1);
+    filter: drop-shadow(10px -4px 10px var(--c4));
+}
+
+.four + .four {
+    margin-left: 43vmin;
+    margin-top: 15vmin;
+    transform: scale(0.95, 0.75) rotateX(5deg) rotateY(35deg) rotateZ(30deg) translateZ(18vmin);
+    text-shadow: 1px 0px 2px #94b5ff, 3px 0px 2px #94b5ff80, 1px 0px 0px var(--c3), 2px 0px 2px var(--c3), 4px 0px 2px var(--c3), 5px 0px 2px var(--c3), 6px 0px 2px var(--c3), 7px 0px 2px var(--c3), 8px 0px 2px var(--c3), 9px 0px 2px var(--c3), 10px 0px 2px var(--c3), 11px 0px 3px var(--c3), 12px 0px 3px var(--c3), 20px 0px 3px var(--c3), 13px 0px 5px var(--c6), 18px -6px 15px var(--c6);
+}
+
+.four + .four:before,
+.four + .four:after {
+    content: "4";
+    color: var(--c6);
+    position: absolute;
+    transform-origin: 60% 0%;
+    transform: rotateX(27deg) rotate(-20deg) translate(-0.5vmin, 0.5vmin) skew(0deg, 20deg);
+    transform-style: preserve-3d;
+    text-shadow: none;
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 46%, 0 0);
+    filter: blur(5px);
+    opacity: 0.4;
+}
+
+.four + .four:after {
+    transform-origin: 50% 100%;
+    transform: rotatex(12deg) rotate(-13deg) translate(-27.5vmin, -5.5vmin) skew(-32deg, 6deg) scaleX(1.1);
+    clip-path: polygon(0 39.75%, 100% 49.25%, 100% 100%, 0 100%, 0 50%);
+}
+
+
+.btn {
+    position: absolute;
+    bottom: -15vmin;
+    transform-origin: 50% 0%;
+    transform: rotateX(15deg);
+}
+
+.btn a {
+    border-radius: 0.2vmin;
+    padding: 1.5vmin 2.5vmin;
+    background: #528cff;
+    text-decoration: none;
+    color: #fff9;
+    top: 0;
+    font-size: 3vmin;
+    text-shadow: 0px -2px 2px var(--c0), 0px 1px 3px var(--c6);
+    position: relative;
+    transition: all 0.25s linear 0s;
+    box-shadow: 1px 0px 1px #94b5ff, 0px 2px 2px #94b5ff80, 0px 1px 2px var(--c3), 0px 4px 2px var(--c3), 0px 6px 2px var(--c3), 0px 8px 2px var(--c3), 0px 10px 2px var(--c3), 0px 12px 2px var(--c3), 0px 14px 2px var(--c3), 0px 16px 2px var(--c3), 0px 18px 2px var(--c3), 0px 20px 3px var(--c3), 2px 22px 3px var(--c3), 0px 23px 3px var(--c6), 0px 3px 15px var(--c6);
+}
+
+.btn a:hover {
+    top: 16px;
+    color: var(--c6);
+    box-shadow: 1px 0px 1px #94b5ff, 0px 2px 2px #94b5ff80, 0px 1px 2px var(--c3), 0px 1px 2px var(--c3), 0px 2px 2px var(--c3), 0px 2px 2px var(--c3), 0px 2px 2px var(--c3), 0px 2px 2px var(--c3), 0px 2px 3px var(--c3), 0px 2px 3px var(--c3), 0px 2px 2px var(--c3), 0px 2px 3px var(--c3), 2px 2px 3px var(--c3), 0px 4px 3px var(--c6), 2px 5px 6px var(--c6);
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    background: var(--c4);
+    width: 100%;
+    height: 300%;
+    left: 0;
+    top: 0;
+    transform: translateZ(-2vmin) skew(-10deg, 0deg) translateY(-4.5vmin) translateX(1vmin);
+    filter: blur(5px);
+    transition: all 0.5s ease 0s;
+    opacity: 0.35;
+}
+
+.btn:hover::after {
+    background: #0000;
+    width: 100%;
+    height: 20%;
+    left: 0;
+    top: 0;
+    transform: translateZ(-2vmin) skew(-0deg, 0deg) translateY(0vmin) translateX(0vmin);
+}
+
+
+@media screen and (orientation: portrait) {
+    .oops p { line-height: 10vmin; font-size: 6.5vmin; }
+}
+    </style>
+<div class="room">
+	<div class="cuboid">
+		<div class="side"></div>
+		<div class="side"></div>
+		<div class="side"></div>
+	</div>
+	<div class="oops">
+		<h2>OOPS!</h2>
+		<p>We can't find the page that you're looking for :(</p>
+	</div>
+	<div class="center-line">
+		<div class="hole">
+			<div class="ladder-shadow"></div>
+			<div class="ladder"></div>
+		</div>
+		<div class="four">4</div>
+		<div class="four">4</div>
+		<div class="btn">
+			<a href="https://vantio.uk">BACK TO HOME</a>
+		</div>
+	</div>
+</div>
 <!--Use the below code snippet to provide real time updates to the live chat plugin without the need of copying and paste each time to your website when changes are made via PBX-->
 <call-us-selector phonesystem-url="https://1883.3cx.cloud" party="vantio"></call-us-selector>
 <script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
