@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vantio - 500 Internal Server Error</title>
+    <link rel="icon" href="https://vantio.uk/public/logo.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        function toggleLanguage() {
+            const englishContent = document.getElementById('english-content');
+            const dutchContent = document.getElementById('dutch-content');
+            englishContent.classList.toggle('hidden');
+            dutchContent.classList.toggle('hidden');
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-roboto flex items-center justify-center min-h-screen">
+    <div class="text-center p-6 bg-white rounded-lg shadow-lg">
+        <img src="https://vantio.uk/public/logo.png" alt="Vantio logo showing a stylized musical note" class="mx-auto mb-4 w-24 h-24">
+        
+        <div class="flex justify-center mb-4">
+            <label for="language-toggle" class="flex items-center cursor-pointer">
+                <span class="mr-2">EN</span>
+                <div class="relative">
+                    <input type="checkbox" id="language-toggle" class="sr-only" onclick="toggleLanguage()">
+                    <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                    <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+                </div>
+                <span class="ml-2">NL</span>
+            </label>
+        </div>
+
+        <div id="english-content">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">500 Internal Server Error</h1>
+            <p class="text-gray-600 mb-4">Something went wrong on our end. Please try again later.</p>
+            <a href="https://vantio.uk/" class="inline-block bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition duration-300">
+                <i class="fas fa-redo mr-2"></i>Try Again
+            </a>
+        </div>
+
+        <div id="dutch-content" class="hidden">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">500 Interne Serverfout</h1>
+            <p class="text-gray-600 mb-4">Er is iets misgegaan aan onze kant. Probeer het later opnieuw.</p>
+            <a href="https://vantio.uk/" class="inline-block bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition duration-300">
+                <i class="fas fa-redo mr-2"></i>Probeer Opnieuw
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('language-toggle').addEventListener('change', function() {
+            const dot = document.querySelector('.dot');
+            if (this.checked) {
+                dot.style.transform = 'translateX(100%)';
+            } else {
+                dot.style.transform = 'translateX(0)';
+            }
+        });
+    </script>
+</body>
+</html>
